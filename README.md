@@ -58,7 +58,7 @@ To properly run the compilation and simulation on Modelsim use the files contain
 
 ### Vivado Design Suite
 
-Vivado Design Suite is Xilinx's (AMD) integrated development environment (IDE) for FPGA synthesis and implementation. Required for mapping VHDL filter designs to specific FPGA hardware, generating bitstreams, and analyzing hardware resource utilization.
+Vivado Design Suite is Xilinx's (AMD) integrated development environment (IDE) for FPGA synthesis and implementation. Required for mapping VHDL filter designs to specific FPGA hardware, timing constraint, and analyzing hardware resource utilization.
 
 **Installation:**
 
