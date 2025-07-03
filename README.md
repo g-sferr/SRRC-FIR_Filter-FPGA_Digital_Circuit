@@ -49,7 +49,7 @@ The **essential Python packages** for this project are:
 
 ModelSim is a leading HDL (Hardware Description Language) simulation environment used to verify SRRC filter VHDL code behavior. It enables testbench execution and waveform analysis of hardware signals.
 
-To properly run the compilation and simulation on Modelsim use the files contained in the src and modelsim/tb directory
+To properly run the compilation and simulation on Modelsim use the files contained in the `src` and `tests/modelsim/tb` directory
 
 **Installation:**
 
@@ -62,12 +62,13 @@ Vivado Design Suite is Xilinx's (AMD) integrated development environment (IDE) f
 
 **Installation:**
 
-1. Download Vivado from AMD Xilinx's website.
-2. Select the appropriate OS version and follow installation instructions. The free WebPACK edition may suffice for basic needs.
+1. Download Vivado from AMD Xilinx's website. [Vivado Download](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html).
+2. Version used and reachable through `Archive` on the website: Xilinx Unified Installer 2021.2: Windows Self Extracting Web Installer
+3. Select the appropriate OS version and follow installation instructions. The free WebPACK edition may suffice for basic needs.
 
 ## Documentation Report
 
-You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Square Root Raised-Cosine Filter (FIR): FPGA Digital Circuit](/docs/Report-SRRC-FIR_Filter.pdf).
+You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Report-SRRC-FIR_Filter](/docs/Report-SRRC-FIR_Filter.pdf).
 
 ## Author
 
