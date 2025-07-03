@@ -27,7 +27,7 @@ Visual Studio Code is a lightweight yet powerful source code editor widely used 
 
 ### Python with Required Packages
 
-Python is the primary programming language used for SRRC filter simulation and analysis.
+Python programming language has been used for SRRC filter simulation and analysis. It was used for testbench execution and waveform analysis of hardware in numerical and high-level manner.
 
 The **essential Python packages** for this project are:
 
@@ -47,7 +47,7 @@ The **essential Python packages** for this project are:
 
 ### ModelSim
 
-ModelSim is a leading HDL (Hardware Description Language) simulation environment used to verify SRRC filter VHDL code behavior. It enables testbench execution and waveform analysis of hardware signals.
+ModelSim is a leading HDL (Hardware Description Language) simulation environment used to verify SRRC filter VHDL code behavior. It enables testbench execution and waveform analysis of hardware signals (as if it were in hardware).
 
 To properly run the compilation and simulation on Modelsim use the files contained in the `src` and `tests/modelsim/tb` directory
 
