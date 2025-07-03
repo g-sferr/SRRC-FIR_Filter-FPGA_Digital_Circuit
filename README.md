@@ -11,7 +11,7 @@ This project involved the design and implementation of a symmetric FIR digital f
 
 ![Image of Description](utils/Assignment_FIR_Raised-Cosine.png)
 
-## Required Software and Frameworks
+## Required Software/Frameworks
 
 To develop, simulate, and implement the proposed digital filter system, the following tools and environments must be installed
 
