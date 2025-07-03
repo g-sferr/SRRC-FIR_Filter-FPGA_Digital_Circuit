@@ -68,7 +68,7 @@ Vivado Design Suite is Xilinx's (AMD) integrated development environment (IDE) f
 
 ## Documentation Report
 
-You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Report-SRRC-FIR_Filter](/docs/Report-SRRC-FIR_Filter.pdf).
+You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Report_SRRC-FIR_Filter](/docs/Report_SRRC-FIR_Filter.pdf).
 
 ## Author
 
