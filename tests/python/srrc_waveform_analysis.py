@@ -56,72 +56,75 @@ def srrc_pulse(alpha, sps, span):
 
     return pulse
 
-# === Filter Parameters ===
-rolloff = 0.5
-sps = 4          # Samples per symbol -> ( It corresponds to 'T' in frequency formula in the plot. E.g freq = 0.8/T in the Plot)
-span = 6         # Number of symbols in the impulse response
+def test_waveform():
+    # === Filter Parameters ===
+    rolloff = 0.5
+    sps = 4      # Samples per symbol -> ( It corresponds to 'T' in frequency formula in the plot. E.g freq = 0.8/T in the Plot)
+    span = 6     # Number of symbols in the impulse response
 
-# ====================================================================================
-# -- Change the value (1, 2, 3 or 4) of the variable below to run the desired test --
-TEST_MODE = 4
-# ====================================================================================
+    # ====================================================================================
+    # -- Change the value (1, 2, 3 or 4) of the variable below to run the desired test --
+    TEST_MODE = 4
+    # ====================================================================================
 
-# === Filter Generation ===
-coeffs = srrc_pulse(rolloff, sps, span)
+    # === Filter Generation ===
+    coeffs = srrc_pulse(rolloff, sps, span)
 
-# === Test Selection ===
-if TEST_MODE == 1:
-    # Test 1: Impulse Response
-    input_symbols = np.zeros(10)
-    input_symbols[5] = 1.0
-    upsampled = upfirdn([1], input_symbols, sps)
-    title = "Test Single Impulse Response - (Python Simulation)"
+    # === Test Selection ===
+    if TEST_MODE == 1:
+        # Test 1: Impulse Response
+        input_symbols = np.zeros(10)
+        input_symbols[5] = 1.0
+        upsampled = upfirdn([1], input_symbols, sps)
+        title = "Test Single Impulse Response - (Python Simulation)"
 
-elif TEST_MODE == 2:
-    # Test 2: Zero ISI (impulses every T symbols)
-    input_symbols = np.zeros(10)
-    input_symbols[0::2] = 1.0
-    input_symbols[1::2] = -1.0
-    upsampled = upfirdn([1], input_symbols, sps)
-    title = "Test Zero ISI with impulses +1/-1 alternated - (Python Simulation)"
+    elif TEST_MODE == 2:
+        # Test 2: Zero ISI (impulses every T symbols)
+        input_symbols = np.zeros(10)
+        input_symbols[0::2] = 1.0
+        input_symbols[1::2] = -1.0
+        upsampled = upfirdn([1], input_symbols, sps)
+        title = "Test Zero ISI with impulses +1/-1 alternated - (Python Simulation)"
 
-elif TEST_MODE == 3:
-    # Test 3: Out-of-band sinusoid
-    t = np.arange(200)
-    freq_out = 0.8 / sps  # Out of band (high attenuation)
-    upsampled = np.sin(2 * np.pi * freq_out * t)
-    title = "Test Out-of-band Sinusoid (freq = 0.8/T) - (Python Simulation)"
+    elif TEST_MODE == 3:
+        # Test 3: Out-of-band sinusoid
+        t = np.arange(200)
+        freq_out = 0.8 / sps  # Out of band (high attenuation)
+        upsampled = np.sin(2 * np.pi * freq_out * t)
+        title = "Test Out-of-band Sinusoid (freq = 0.8/T) - (Python Simulation)"
 
-elif TEST_MODE == 4:
-    # Test 4: In-band sinusoid (low attenuation)
-    t = np.arange(200)
-    freq_in = 0.1 / sps  # In band
-    upsampled = np.sin(2 * np.pi * freq_in * t)
-    title = "Test In-band Sinusoid (freq = 0.1/T) - (Python Simulation)"
+    elif TEST_MODE == 4:
+        # Test 4: In-band sinusoid (low attenuation)
+        t = np.arange(200)
+        freq_in = 0.1 / sps  # In band
+        upsampled = np.sin(2 * np.pi * freq_in * t)
+        title = "Test In-band Sinusoid (freq = 0.1/T) - (Python Simulation)"
 
-else:
-    raise ValueError("Invalid TEST_MODE. Use a number between 1 and 4.") # Updated range
+    else:
+        raise ValueError("Invalid TEST_MODE. Use a number between 1 and 4.") # Updated range
 
-# === Filtering ===
-filtered_output = np.convolve(upsampled, coeffs)
+    # === Filtering ===
+    filtered_output = np.convolve(upsampled, coeffs)
 
-# === Plot ===
-plt.figure(figsize=(10, 4))
-plt.plot(upsampled, '--', alpha=0.6, label="Input (Upsampled)", color='tab:orange')
-plt.plot(filtered_output, label="SRRC Filter Output")
-plt.title(title)
-plt.xlabel("Samples")
-plt.ylabel("Amplitude")
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-plt.show()
+    # === Plot ===
+    plt.figure(figsize=(10, 4))
+    plt.plot(upsampled, '--', alpha=0.6, label="Input (Upsampled)", color='tab:orange')
+    plt.plot(filtered_output, label="SRRC Filter Output")
+    plt.title(title)
+    plt.xlabel("Samples")
+    plt.ylabel("Amplitude")
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
 
+    print("\t✔️\tTest Completed\t✔️ \n")
 
-print("\t✔️\tTest Completed\t✔️ \n")
+    # === Saving for comparison with VHDL ===
+    # np.savetxt("reference_output.txt", filtered_output, fmt="%.6f")
+    # np.savetxt("input_symbols.txt", upsampled, fmt="%.6f")
+    # np.savetxt("srrc_coeffs.txt", h, fmt="%.6f")
+    # print("✔️  Files saved: 'reference_output.txt', 'input_symbols.txt', 'srrc_coeffs.txt'")
 
-# === Saving for comparison with VHDL ===
-# np.savetxt("reference_output.txt", filtered_output, fmt="%.6f")
-# np.savetxt("input_symbols.txt", upsampled, fmt="%.6f")
-# np.savetxt("srrc_coeffs.txt", h, fmt="%.6f")
-# print("✔️  Files saved: 'reference_output.txt', 'input_symbols.txt', 'srrc_coeffs.txt'")
+if __name__ == "__main__":
+    test_waveform()
