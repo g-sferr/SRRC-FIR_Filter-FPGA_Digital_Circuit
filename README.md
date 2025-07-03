@@ -1,5 +1,5 @@
 
-# Square Root Raised-Cosine Filter (FIR): Digital Circuit FPGA Implementation
+# Square Root Raised-Cosine Filter (FIR): FPGA Digital Circuit
 
 Electronics & Communication Systems Project at University of Pisa - MSc Computer Engineering.
 
@@ -67,7 +67,7 @@ Vivado Design Suite is Xilinx's (AMD) integrated development environment (IDE) f
 
 ## Documentation Report
 
-You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Square Root Raised-Cosine Filter (FIR): Digital Circuit FPGA Implementation](/docs/Report-SRRC-FIR_Filter.pdf).
+You can find more details about the work related to this project by reading the **Report** appropriately wrote to summarize it by clicking on this link [Square Root Raised-Cosine Filter (FIR): FPGA Digital Circuit](/docs/Report-SRRC-FIR_Filter.pdf).
 
 ## Author
 
