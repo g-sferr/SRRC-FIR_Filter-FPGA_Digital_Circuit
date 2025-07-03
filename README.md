@@ -1,5 +1,5 @@
 
-# Square Root Raised-Cosine Filter (FIR): FPGA Digital Circuit
+# Square Root Raised-Cosine FIR Filter: FPGA Digital Circuit
 
 Electronics & Communication Systems Project at University of Pisa - MSc Computer Engineering.
 
